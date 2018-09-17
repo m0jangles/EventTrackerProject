@@ -1,5 +1,6 @@
 package com.skilldistillery.eventtracker.services;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import com.skilldistillery.eventtracker.repositories.ActivityRepository;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
-	
+
 	@Autowired
 	private ActivityRepository activityRepo;
 
@@ -21,14 +22,26 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@Override
 	public Activity create(Activity a) {
-			
+
 		return activityRepo.saveAndFlush(a);
 	}
 
 	@Override
-	public Activity delete(Activity a) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean delete(Activity a) {
+		try {
+			activityRepo.delete(a);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Activity update(Activity a, int id) {
+		a.setId(id);
+		a.setDate(a.getDate());
+		return activityRepo.saveAndFlush(a);
 	}
 
 }

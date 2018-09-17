@@ -10,5 +10,7 @@ public interface ActivityService {
 	
 	Activity create(Activity a);
 	
-	Activity delete(Activity a);
+	boolean delete(Activity a);
+	
+	Activity update(Activity a, int id);
 }

@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `body_part` VARCHAR(45) NULL,
-  `activity_name` VARCHAR(45) NULL,
+  `activity_name` VARCHAR(45) NOT NULL,
   `sets_performed` VARCHAR(45) NULL,
   `reps_per_set` VARCHAR(45) NULL,
   `video` VARCHAR(1000) NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`, `activity_name`))
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
