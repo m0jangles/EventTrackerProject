@@ -49,7 +49,7 @@ public class ActivityController {
 		return result;
 	}
 	
-	@RequestMapping(path="activities/{id}", method=RequestMethod.PATCH)
+	@RequestMapping(path="activities/{id}", method=RequestMethod.PUT)
 	public Activity update(@RequestBody Activity a, @PathVariable int id, HttpServletResponse res) {
 		Activity updated = activityService.update(a, id);
 		
