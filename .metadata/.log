@@ -916,3 +916,95 @@ java.net.UnknownHostException: dist.springsource.com: nodename nor servname prov
 	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:60)
+
+!ENTRY org.eclipse.wst.common.frameworks 4 0 2018-09-17 09:08:04.755
+!MESSAGE Error exporting/Users/m0jangles/SD/Java/EventTracker/EventTrackerREST.war
+!STACK 0
+org.eclipse.core.commands.ExecutionException: Error exporting/Users/m0jangles/SD/Java/EventTracker/EventTrackerREST.war
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:150)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl$1.run(DataModelPausibleOperationImpl.java:385)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:410)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:360)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.doExecute(DataModelPausibleOperationImpl.java:247)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.executeImpl(DataModelPausibleOperationImpl.java:219)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.cacheThreadAndContinue(DataModelPausibleOperationImpl.java:89)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.execute(DataModelPausibleOperationImpl.java:207)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.ui.DataModelWizard$1CatchThrowableRunnableWithProgress.run(DataModelWizard.java:220)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.jst.jee.archive.ArchiveSaveFailureException: java.lang.NullPointerException
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:126)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.export(ComponentExportOperation.java:193)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:136)
+	... 11 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.append(Path.java:319)
+	at org.eclipse.wst.common.componentcore.internal.flat.ChildModuleReference.<init>(ChildModuleReference.java:68)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.addUsedReferences(FlatVirtualComponent.java:308)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.treeWalk(FlatVirtualComponent.java:235)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.cacheResources(FlatVirtualComponent.java:188)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.fetchResources(FlatVirtualComponent.java:118)
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:112)
+	... 13 more
+
+!ENTRY org.eclipse.wst.common.frameworks 4 0 2018-09-17 09:08:04.819
+!MESSAGE Extended Operation failure: org.eclipse.jst.j2ee.internal.archive.operations.JavaEEComponentExportOperation
+!STACK 0
+org.eclipse.core.commands.ExecutionException: Error exporting/Users/m0jangles/SD/Java/EventTracker/EventTrackerREST.war
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:150)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl$1.run(DataModelPausibleOperationImpl.java:385)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:410)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:360)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.doExecute(DataModelPausibleOperationImpl.java:247)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.executeImpl(DataModelPausibleOperationImpl.java:219)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.cacheThreadAndContinue(DataModelPausibleOperationImpl.java:89)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.execute(DataModelPausibleOperationImpl.java:207)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.ui.DataModelWizard$1CatchThrowableRunnableWithProgress.run(DataModelWizard.java:220)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.jst.jee.archive.ArchiveSaveFailureException: java.lang.NullPointerException
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:126)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.export(ComponentExportOperation.java:193)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:136)
+	... 11 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.append(Path.java:319)
+	at org.eclipse.wst.common.componentcore.internal.flat.ChildModuleReference.<init>(ChildModuleReference.java:68)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.addUsedReferences(FlatVirtualComponent.java:308)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.treeWalk(FlatVirtualComponent.java:235)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.cacheResources(FlatVirtualComponent.java:188)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.fetchResources(FlatVirtualComponent.java:118)
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:112)
+	... 13 more
+!SUBENTRY 1 org.eclipse.wst.common.frameworks 4 0 2018-09-17 09:08:04.819
+!MESSAGE Extended Operation failure: org.eclipse.jst.j2ee.internal.archive.operations.JavaEEComponentExportOperation
+!STACK 0
+org.eclipse.core.commands.ExecutionException: Error exporting/Users/m0jangles/SD/Java/EventTracker/EventTrackerREST.war
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:150)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl$1.run(DataModelPausibleOperationImpl.java:385)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2289)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2316)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:410)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.runOperation(DataModelPausibleOperationImpl.java:360)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.doExecute(DataModelPausibleOperationImpl.java:247)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.executeImpl(DataModelPausibleOperationImpl.java:219)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.cacheThreadAndContinue(DataModelPausibleOperationImpl.java:89)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.DataModelPausibleOperationImpl.execute(DataModelPausibleOperationImpl.java:207)
+	at org.eclipse.wst.common.frameworks.internal.datamodel.ui.DataModelWizard$1CatchThrowableRunnableWithProgress.run(DataModelWizard.java:220)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.jst.jee.archive.ArchiveSaveFailureException: java.lang.NullPointerException
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:126)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.export(ComponentExportOperation.java:193)
+	at org.eclipse.jst.j2ee.internal.archive.operations.ComponentExportOperation.execute(ComponentExportOperation.java:136)
+	... 11 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.append(Path.java:319)
+	at org.eclipse.wst.common.componentcore.internal.flat.ChildModuleReference.<init>(ChildModuleReference.java:68)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.addUsedReferences(FlatVirtualComponent.java:308)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.treeWalk(FlatVirtualComponent.java:235)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.cacheResources(FlatVirtualComponent.java:188)
+	at org.eclipse.wst.common.componentcore.internal.flat.FlatVirtualComponent.fetchResources(FlatVirtualComponent.java:118)
+	at org.eclipse.jst.j2ee.internal.archive.operations.FlatComponentArchiver.saveArchive(FlatComponentArchiver.java:112)
+	... 13 more
