@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Activity Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<h1>Activity Tracker</h1>
+	<h3>Keep Track of Your Physical Activity by Date</h3>
+	<h3>Add New Workouts or Use Your Database to Revisit Workouts</h3>
+	<form name="activityForm">
+		<input type="text" name="keyword">
+		<button name="lookup">Get Activity by Keyword</button>
+	</form>
+	<br>
+	<form name="newActivityForm">
+		Activity Name:
+		<input type="text" name="activityName" placeholder="Activity Name">
+		<br>
+		<br>
+		Area Worked:
+		<input type="text" name="bodyPart" placeholder="Area Worked">
+		<br>
+		<br>
+		Sets:
+		<input type="number" name="sets"> 
+		<br>
+		<br>
+		Reps:
+		<input type="number" name="reps"> 
+		<br> 
+		<br>
+		Video URL: 
+		<input type="text"
+			name="video" placeholder="optional url"> <br>
+		<button name="submit">Add New Activity</button>
+	</form>
+	<div id="output">
+		<div id="activityData"></div>
+
+	</div>
+
+</body>
+</html>
