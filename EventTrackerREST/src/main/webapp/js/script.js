@@ -5,12 +5,6 @@ window.addEventListener('load', function(e) {
 });
 
 
-//var newActDiv = document.getElementById('newAct');
-//newActDiv.textContent = '';
-//var newActivity = document.createElement('button');
-//newActivity.textContent = 'Add New Activity';
-//newActDiv.appendChild(newActivity);
-
 function getActivities() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "/api/activities");
@@ -18,7 +12,7 @@ function getActivities() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       activityArr = JSON.parse(xhr.responseText);
-      console.log(xhr.responseText);
+//      console.log(xhr.responseText);
       showActivities(activityArr);
     } else {
       console.log(xhr.readyState + " " + xhr.status);
@@ -33,7 +27,7 @@ function getActivities() {
 }
 
 function showActivities(activityArr) {
-  console.log(typeof activityArr);
+ 
   let dataDiv = document.getElementById('activityData');
   dataDiv.textContent = '';
 
@@ -125,8 +119,8 @@ function showActivities(activityArr) {
         	  console.log('Activity Deleted');
         	  getActivities();
           }
-          if (xhr.readyState === 4 && xhr.status >= 400) {
-        	  console.log('Activity Not Deleted');
+          else if (xhr.readyState === 4 && xhr.status >= 400) {
+        	  console.log(xhr.status + ': ' + xhr.responseText);
           }
         }
       }
@@ -136,4 +130,39 @@ function showActivities(activityArr) {
 dataDiv.appendChild(table);
 
   }
+}
+
+function newActivity(){
+	
+	let form = document.getElementById('newActivityForm')
+	let name = form.activityName.value;
+	let area = form.bodyPart.value;
+	let sets = form.sets.value;
+	let reps = form.reps.value;
+	
+	form.submit.addEventListener('click', function(e){
+		let activity = JSON.stringify({
+			"activityName": name,
+			"bodyPart": area,
+			"sets": sets,
+			"reps": reps
+		})
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'api/activities', true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(activity);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status < 400) {
+        	  console.log('Activity Added');
+//        	  xhr.send(activity);
+        	  getActivities();
+          }
+          else if (xhr.readyState === 4 && xhr.status >= 400) {
+        	  console.log(xhr.status + ': ' + xhr.responseText);
+          }
+        }
+		
+	})
+	
+	
 }
