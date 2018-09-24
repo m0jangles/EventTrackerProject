@@ -34,7 +34,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public boolean delete(Activity a) {
+	public boolean delete(Activity a, int id) {
 		try {
 			activityRepo.delete(a);
 			return true;
