@@ -38,7 +38,7 @@ public class ActivityController {
 		return newActivity;
 	}
 	
-	@RequestMapping(path="activities", method = RequestMethod.DELETE)
+	@RequestMapping(path="activities/{id}", method = RequestMethod.DELETE)
 	public boolean delete(@RequestBody Activity activity, @PathVariable int id,HttpServletResponse res) {
 		boolean result = activityService.delete(activity, id);
 		if(result) {
