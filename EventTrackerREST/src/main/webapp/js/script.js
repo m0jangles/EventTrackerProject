@@ -95,31 +95,66 @@ function showActivities(activityArr) {
     let tdReps = document.createElement('td');
     tdReps.textContent = activityArr[i].reps;
     trMain.appendChild(tdReps);
-    
-//creates an update button
+
+    //creates an update button
     let updatebtn = document.createElement('button');
     updatebtn.textContent = 'Update';
     trMain.appendChild(updatebtn);
-    
-//code to display a single activity, to be used for updating the activity
-    updatebtn.addEventListener('click', function(e){
-    	e.preventDefault;
-    	var element = e.target;
-    	let updateHeader = document.createElement('h4');
-    	let divUpdate = document.getElementById('detail');
-    	updateHeader.textContent = 'Update Activity Fields: ';
 
-    	
-    	document.getElementById('activityName').textContent = activityArr[i].activityName;
-    	document.getElementById('bodyPart').textContent = activityArr[i].bodyPart;
-    	document.getElementById('sets').textContent = activityArr[i].sets;
-    	document.getElementById('reps').textContent = activityArr[i].reps;
+    //code to display form for a single activity, to be used for updating the activity
+    document.getElementById('detail').style.visibility = "hidden";
     
+    // document.getElementById('updateActivityForm').style.visibility = "hidden";
+    updatebtn.addEventListener('click', function(e) {
+    	document.getElementById('detail').style.visibility = "visible";
+    	
+//    	var detail = document.getElementById('detail');
+//      	document.detail.getElementById('activityName1').textContent = activityArr[i].activityName;
+//      	document.detail.getElementById('bodyPart1').textContent = activityArr[i].bodyPart;
+//      	document.detail.getElementById('sets1').textContent = activityArr[i].sets;
+//      	document.detail.getElementById('reps1').textContent = activityArr[i].reps;
+      e.preventDefault;
+      var element = e.target;
+     
+      document.updateActivityForm.submit.addEventListener('click', function(e) {
+
+        e.preventDefault();
+        console.log('hai');
+
+        let name = updateActivityForm.activityName.value;
+        let area = updateActivityForm.bodyPart.value;
+        let sets = updateActivityForm.sets.value;
+        let reps = updateActivityForm.reps.value;
+
+        let activity = JSON.stringify({
+          "activityName": name,
+          "bodyPart": area,
+          "sets": sets,
+          "reps": reps
+        })
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'api/activities/' + activityArr[i].id, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(activity);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status < 400) {
+            console.log('Activity Updated');
+
+            getActivities();
+            updateActivityForm.reset();
+          } else if (xhr.readyState === 4 && xhr.status >= 400) {
+            console.log(xhr.status + ': ' + xhr.responseText);
+          }
+        }
+
+      })
+
     })
-//code to delete an activity
+
+    //code to delete an activity
     let clearbtn = document.createElement('button');
     clearbtn.textContent = 'Delete';
-    trMain.appendChild(clearbtn);
+    trMain.appendChild(clearbtn)
 
     clearbtn.addEventListener('click', function(e) {
       e.preventDefault;
