@@ -9,18 +9,15 @@
 	<h1>Activity Tracker</h1>
 	<h3>Keep Track of Your Physical Activity by Date</h3>
 	<h3>Add New Workouts or Use Your Database to Revisit Workouts</h3>
-	<form name="activityForm">
+	<!-- <form name="activityForm">
 		<input type="text" name="keyword">
 		<button name="lookup">Get Activity by Keyword</button>
-	</form>
+	</form> -->
 	<br>
 	
 	
 	<div id="output">
 		<div id="activityData"></div>
-	</div>
-	
-	<div id="newAct">
 	</div>
 	
 	<form name='newActivityForm' id='newActivityForm'>
@@ -37,8 +34,15 @@
         Reps:
         <input type='number' name='reps' placeholder="ex.10" />
         <br>
-        <input type='submit' name='submit' value='submit' />
+         <button name="submit">Submit</button>
       </form>
+      
+ <div id= "detail">
+  <p id="activityName"></p>
+  <p id="bodyPart"></p>
+  <p id="sets"></p>
+  <p id="reps"></p>
+</div>
 
 </body>
 </html>

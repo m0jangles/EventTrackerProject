@@ -18,7 +18,7 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@Autowired
 	private ActivityRepository activityRepo;
 
@@ -38,7 +38,7 @@ public class ActivityServiceImpl implements ActivityService {
 		try {
 			activityRepo.deleteById(id);
 			return true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -46,8 +46,19 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@Override
 	public Activity update(Activity a, int id) {
-		Activity managedActivity = em.find(Activity.class, id);
-		return activityRepo.saveAndFlush(managedActivity);
+		try {
+			Activity managedActivity = em.find(Activity.class, id);
+			managedActivity.setActivityName(a.getActivityName());
+			managedActivity.setBodyPart(a.getBodyPart());
+			managedActivity.setSets(a.getSets());
+			managedActivity.setReps(a.getReps());
+
+			return managedActivity;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 
 }
