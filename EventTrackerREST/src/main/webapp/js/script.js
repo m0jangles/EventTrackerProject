@@ -5,7 +5,7 @@ window.addEventListener('load', function(e) {
 
 });
 
-
+//code to retrieve all activities from the database
 function getActivities() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "/api/activities");
@@ -25,7 +25,7 @@ function getActivities() {
   xhr.send(null);
 
 }
-
+//code to build a table to display all activities
 function showActivities(activityArr) {
 
   let dataDiv = document.getElementById('activityData');
@@ -95,28 +95,28 @@ function showActivities(activityArr) {
     let tdReps = document.createElement('td');
     tdReps.textContent = activityArr[i].reps;
     trMain.appendChild(tdReps);
-
+    
+//creates an update button
     let updatebtn = document.createElement('button');
     updatebtn.textContent = 'Update';
     trMain.appendChild(updatebtn);
     
+//code to display a single activity, to be used for updating the activity
     updatebtn.addEventListener('click', function(e){
     	e.preventDefault;
-    	
-    	let activity = activityArr[e.target.id];
-    	
-    	let detail = document.getElementById('detail');
-    	  let activityName = document.getElementById('activityName');
-    	  activityName.textContent = activity.activityName;
-    	  let bodyPart = document.getElementById('bodyPart');
-    	  bodyPart.textContent = activity.bodyPart;
-    	  let sets = document.getElementById('sets');
-    	  sets.textContent = activity.sets;
-    	  let reps = document.getElementById('reps');
-    	  reps.textContent = activity.reps;
-    	
-    })
+    	var element = e.target;
+    	let updateHeader = document.createElement('h4');
+    	let divUpdate = document.getElementById('detail');
+    	updateHeader.textContent = 'Update Activity Fields: ';
 
+    	
+    	document.getElementById('activityName').textContent = activityArr[i].activityName;
+    	document.getElementById('bodyPart').textContent = activityArr[i].bodyPart;
+    	document.getElementById('sets').textContent = activityArr[i].sets;
+    	document.getElementById('reps').textContent = activityArr[i].reps;
+    
+    })
+//code to delete an activity
     let clearbtn = document.createElement('button');
     clearbtn.textContent = 'Delete';
     trMain.appendChild(clearbtn);
@@ -147,7 +147,7 @@ function showActivities(activityArr) {
 
   }
 }
-
+//code to create a new activity using a form on the index page
 function newActivity() {
   document.newActivityForm.submit.addEventListener('click', function(e) {
 
@@ -182,4 +182,3 @@ function newActivity() {
 
   })
 }
-
