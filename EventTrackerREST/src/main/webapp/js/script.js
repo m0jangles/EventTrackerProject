@@ -101,21 +101,23 @@ function showActivities(activityArr) {
     updatebtn.textContent = 'Update';
     trMain.appendChild(updatebtn);
 
-    //code to display form for a single activity, to be used for updating the activity
+    //hides the update form until updatebtn is clicked
     document.getElementById('detail').style.visibility = "hidden";
-    
-    // document.getElementById('updateActivityForm').style.visibility = "hidden";
+
+    // displays the update form to update the selected activity
     updatebtn.addEventListener('click', function(e) {
-    	document.getElementById('detail').style.visibility = "visible";
-    	
-//    	var detail = document.getElementById('detail');
-//      	document.detail.getElementById('activityName1').textContent = activityArr[i].activityName;
-//      	document.detail.getElementById('bodyPart1').textContent = activityArr[i].bodyPart;
-//      	document.detail.getElementById('sets1').textContent = activityArr[i].sets;
-//      	document.detail.getElementById('reps1').textContent = activityArr[i].reps;
+    document.getElementById('detail').style.visibility = "visible";
+
+      //    	var detail = document.getElementById('detail');
+      //      	document.detail.getElementById('activityName1').textContent = activityArr[i].activityName;
+      //      	document.detail.getElementById('bodyPart1').textContent = activityArr[i].bodyPart;
+      //      	document.detail.getElementById('sets1').textContent = activityArr[i].sets;
+      //      	document.detail.getElementById('reps1').textContent = activityArr[i].reps;
+
       e.preventDefault;
       var element = e.target;
-     
+      
+      //will update the activity when the submit button is clicked
       document.updateActivityForm.submit.addEventListener('click', function(e) {
 
         e.preventDefault();
