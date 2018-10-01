@@ -3,16 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Activity } from './models/activity';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityService {
-   private baseUrl = 'http://localhost:8081/';
-   private urlActivity = this.baseUrl + 'api/activities';
+   private urlActivity = 'api/activities';
+   private url = environment.baseUrl + this.urlActivity;
+
 
    public index(): Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.urlActivity).pipe(
+    return this.http.get<Activity[]>(this.url).pipe(
       catchError((err: any) => {
                   console.log(err);
                   return throwError('Error retrieving data ' + err.status);
@@ -21,7 +23,7 @@ export class ActivityService {
   }
 
   public show(id): Observable<Activity> {
-    return this.http.get<Activity>(this.urlActivity + '/' + id)
+    return this.http.get<Activity>(this.url + '/' + id)
     .pipe(catchError((err: any) => {
         console.log(err);
         return throwError('Error retrieving Activity ' + id + ': status' + err.status);
@@ -31,7 +33,7 @@ export class ActivityService {
   public update(activity: Activity) {
     console.log(activity);
 
-    return this.http.put(this.urlActivity + '/' + activity.id, activity)
+    return this.http.put(this.url + '/' + activity.id, activity)
     .pipe(catchError((err: any) => {
       console.log(err);
       return throwError('Error retrieving data ' + err.status);
@@ -48,7 +50,7 @@ export class ActivityService {
          'Content-Type':  'application/json'
        })
      };
-     return this.http.post<any>(this.urlActivity, activity, httpOptions)
+     return this.http.post<any>(this.url, activity, httpOptions)
      .pipe(catchError((err: any) => {
        console.log(err);
      // tslint:disable-next-line:no-trailing-whitespace
@@ -56,7 +58,7 @@ export class ActivityService {
    }));
  }
  public destroy(id: number) {
-  return this.http.delete(this.urlActivity + '/' + id)
+  return this.http.delete(this.url + '/' + id)
   .pipe(catchError((err: any) => {
     console.log(err);
     return throwError('Error retrieving data ' + err.status);

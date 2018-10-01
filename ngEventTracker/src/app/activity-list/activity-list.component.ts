@@ -20,7 +20,7 @@ export class ActivityListComponent implements OnInit {
 
   newActivity: Activity = new Activity();
 
-  bodyPart = [
+  bodyParts = [
     'all',
     'Back',
     'Full',

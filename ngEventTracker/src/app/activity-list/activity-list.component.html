@@ -1,8 +1,12 @@
-
-  <h2>Beast Mode Tracker</h2>
-
-  <!-- <button class="btn-success" (click)="displayPage()">See All Activity</button>
-<div name="page" *ngIf="selected"> -->
+<h2>Beast Mode Tracker</h2>
+<h5>Track your activity, Identify which areas you work most and remind
+  yourself not to skip leg day
+</h5>
+<h6>1. Click an activity to edit</h6>
+<h6>2. Add a new activity</h6>
+<h6>3. Get rid of old activities or ones that just didn't work out for you</h6>
+<h6>In the works: Find workouts based on area, generate random workout for when you don't know what to work out
+</h6>
   <div name="detail" *ngIf="selected !editActivity">
     <table class="table table-striped table-hover">
       <thead>
@@ -42,23 +46,18 @@
   </form>
   </div>
   <div *ngIf="!selected">
-      <span *ngFor="let area of areas" (click)= "selectedArea = area">
-          {{area}} |
-        </span>
   <table class="table table-striped table-hover" >
-  <thead class="thead-dark"><tr><th>Id</th><th>Date</th><th>Activity Name</th><th>Area Worked</th><th>Sets</th><th>Reps</th><th>Video</th><th>Action</th></tr></thead>
+  <thead class="thead-dark"><tr><th>Id</th><th>Activity Name</th><th>Area Worked</th><th>Sets</th><th>Reps</th><th>Video</th><th></th></tr></thead>
   <tbody>
   <tr *ngFor="let act of activities"  >
-      <td >{{act.id}}</td>
-      <td >{{act.date}}</td>
-      <td >{{act.activityName}}</td>
-      <td >{{act.bodyPart}}</td>
-      <td >{{act.sets}}</td>
+      <td (click)="displayActivity(act)">{{act.id}}</td>
+      <td (click)="displayActivity(act)">{{act.activityName}}</td>
+      <td (click)="displayActivity(act)">{{act.bodyPart}}</td>
+      <td (click)="displayActivity(act)">{{act.sets}}</td>
       <td >{{act.reps}}</td>
-      <td >{{act.video}}</td>
-      <td><button class="btn-danger"type="submit" value="destroy" (click)="deleteActivity(act.id)">Destroy</button>
-        <button class="btn-info"type="submit" value="edit" (click)="deleteActivity(act.id)">  Edit</button>
-      </td>
+      <td>{{act.video}}</td>
+      <td><button class="btn-danger"type="submit" value="destroy" (click)="deleteActivity(act.id)">Destroy</button></td>
+        <!-- <td><button>Destroy</button></td> -->
     </tr>
   </tbody>
   </table>
@@ -72,6 +71,4 @@
     <input type="submit" (click)="createActivity(activityForm)"/>
   </form>
   </div>
-  <!-- </div> -->
-
 
