@@ -1,11 +1,12 @@
 package com.skilldistillery.eventtracker.controllers;
 
-import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.skilldistillery.eventtracker.services.ActivityService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({"*", "http://localhost:4201"})
 public class ActivityController {
 
 	@Autowired
@@ -25,6 +27,11 @@ public class ActivityController {
 	@RequestMapping(path = "activities", method = RequestMethod.GET)
 	public List<Activity> index() {
 		return activityService.index();
+	}
+	
+	@RequestMapping(path = "activities/{aid}", method = RequestMethod.GET)
+	public Optional<Activity> getOneById(@PathVariable int aid) {
+		return activityService.findById(aid);
 	}
 
 	@RequestMapping(path = "activities", method = RequestMethod.POST)
@@ -62,3 +69,4 @@ public class ActivityController {
 	}
 	
 }
+

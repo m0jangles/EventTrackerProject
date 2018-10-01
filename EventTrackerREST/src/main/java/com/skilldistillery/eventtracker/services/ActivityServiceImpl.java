@@ -1,6 +1,7 @@
 package com.skilldistillery.eventtracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -59,6 +60,12 @@ public class ActivityServiceImpl implements ActivityService {
 		}
 		return null;
 
+	}
+
+	@Override
+	public Optional<Activity> findById(int id) {
+		// TODO Auto-generated method stub
+		return activityRepo.findById(id);
 	}
 
 }
